@@ -38,7 +38,10 @@ Meteor.methods({
     // check that user waits more than 15 seconds between comments
     if(!this.isSimulation && (timeSinceLastComment < commentInterval))
       throw new Meteor.Error(704, 'Please wait '+(commentInterval-timeSinceLastComment)+' seconds before commenting again');
-
+	
+	if (!cleanText)
+	  throw new Meteor.Error(704,'Your comment is empty.');
+	
     var comment = {
         post: postId,
         body: cleanText,
