@@ -25,7 +25,7 @@ Handlebars.registerHelper('isAdmin', function(showError) {
     return true;
   }else{
     if((typeof showError === "string") && (showError === "true"))
-      throwError('Sorry, you do not have access to this page');
+      throwError('Désolé, vous n\'avez pas accès à cette page');
     return false;
   }
 });
