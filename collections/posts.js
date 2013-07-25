@@ -37,26 +37,26 @@ Meteor.methods({
 
     // check that user can post
     if (!user || !canPost(user))
-      throw new Meteor.Error(601, 'You need to login or be invited to post new stories.');
+      throw new Meteor.Error(601, 'Seuls les administrateurs peuvent ajouter une nouvelle catégorie.');
 
     // check that user provided a headline
     if(!post.headline)
-      throw new Meteor.Error(602, 'Please fill in a headline');
+      throw new Meteor.Error(602, 'Merci d\'ajouter un titre');
 
     // check that there are no previous posts with the same link
     if(post.url && postWithSameLink){
       Meteor.call('upvotePost', postWithSameLink._id);
-      throw new Meteor.Error(603, 'This link has already been posted', postWithSameLink._id);
+      throw new Meteor.Error(603, 'Ce lien a déjà été ajouté', postWithSameLink._id);
     }
 
     if(!isAdmin(Meteor.user())){
       // check that user waits more than X seconds between posts
       if(!this.isSimulation && timeSinceLastPost < postInterval)
-        throw new Meteor.Error(604, 'Please wait '+(postInterval-timeSinceLastPost)+' seconds before posting again');
+        throw new Meteor.Error(604, 'Merci d\'attendre '+(postInterval-timeSinceLastPost)+' quelques secondes avant de poster un nouveau lien');
 
       // check that the user doesn't post more than Y posts per day
       if(!this.isSimulation && numberOfPostsInPast24Hours > maxPostsPer24Hours)
-        throw new Meteor.Error(605, 'Sorry, you cannot submit more than '+maxPostsPer24Hours+' posts per day');
+        throw new Meteor.Error(605, 'Désolé, vous ne pouvez pas soumettre plus de '+maxPostsPer24Hours+' liens par jour');
     }
 
     // shorten URL
