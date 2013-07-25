@@ -16,31 +16,31 @@ getNotification = function(event, properties, context){
   var p = properties;
   switch(event){
     case 'newReply':
-      notification.subject = 'Someone replied to your comment on "'+p.postHeadline+'"';
-      notification.text = p.commentAuthorName+' has replied to your comment on "'+p.postHeadline+'": '+getPostCommentUrl(p.postId, p.commentId);
-      notification.html = '<p><a href="'+getUserUrl(p.commentAuthorId)+'">'+p.commentAuthorName+'</a> has replied to your comment on "<a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">'+p.postHeadline+'</a>"</p>';
+      notification.subject = 'Une personne a répondu à votre commentaire "'+p.postHeadline+'"';
+      notification.text = p.commentAuthorName+' a répondu à votre commentaire sur "'+p.postHeadline+'": '+getPostCommentUrl(p.postId, p.commentId);
+      notification.html = '<p><a href="'+getUserUrl(p.commentAuthorId)+'">'+p.commentAuthorName+'</a> a répondu à votre commentaire sur "<a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">'+p.postHeadline+'</a>"</p>';
       if(context === 'email')
-        notification.html += '<p>'+p.commentExcerpt+'</p><a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">Read more</a>';
+        notification.html += '<p>'+p.commentExcerpt+'</p><a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">Lire la suite</a>';
     break;
 
     case 'newComment':
-      notification.subject = 'A new comment on your post "'+p.postHeadline+'"';
-      notification.text = 'You have a new comment by '+p.commentAuthorName+' on your post "'+p.postHeadline+'": '+getPostCommentUrl(p.postId, p.commentId);
-      notification.html = '<p><a href="'+getUserUrl(p.commentAuthorId)+'">'+p.commentAuthorName+'</a> left a new comment on your post "<a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">'+p.postHeadline+'</a>"</p>';
+      notification.subject = 'Un nouveau commentaire a été ajouté sur votre lien "'+p.postHeadline+'"';
+      notification.text = 'Un nouveau commentaire a été ajouté par '+p.commentAuthorName+' sur votre lien "'+p.postHeadline+'": '+getPostCommentUrl(p.postId, p.commentId);
+      notification.html = '<p><a href="'+getUserUrl(p.commentAuthorId)+'">'+p.commentAuthorName+'</a> a laissé un nouveau commentaire sur votre lien "<a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">'+p.postHeadline+'</a>"</p>';
       if(context === 'email')
-        notification.html += '<p>'+p.commentExcerpt+'</p><a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">Read more</a>';
+        notification.html += '<p>'+p.commentExcerpt+'</p><a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">Lire la suite</a>';
     break;
 
     case 'newPost':
-      notification.subject = p.postAuthorName+' has created a new post: "'+p.postHeadline+'"';
-      notification.text = p.postAuthorName+' has created a new post: "'+p.postHeadline+'" '+getPostUrl(p.postId);
-      notification.html = '<a href="'+getUserUrl(p.postAuthorId)+'">'+p.postAuthorName+'</a> has created a new post: "<a href="'+getPostUrl(p.postId)+'" class="action-link">'+p.postHeadline+'</a>".';      
+      notification.subject = p.postAuthorName+' a ajouté un nouveau lien : "'+p.postHeadline+'"';
+      notification.text = p.postAuthorName+' a ajouté un nouveau lien : "'+p.postHeadline+'" '+getPostUrl(p.postId);
+      notification.html = '<a href="'+getUserUrl(p.postAuthorId)+'">'+p.postAuthorName+'</a> a ajouté un nouveau lien : "<a href="'+getPostUrl(p.postId)+'" class="action-link">'+p.postHeadline+'</a>".';      
     break;
 
     case 'accountApproved':
-      notification.subject = 'Your account has been approved.';
-      notification.text = 'Welcome to '+getSetting('title')+'! Your account has just been approved.';
-      notification.html = 'Welcome to '+getSetting('title')+'!<br/> Your account has just been approved. <a href="'+Meteor.absoluteUrl()+'">Start posting.</a>';      
+      notification.subject = 'Votre inscription a bien été enregistrée.';
+      notification.text = 'Bienvenue '+getSetting('title')+'! Votre inscription a bien été enregistrée.';
+      notification.html = 'Bienvenue '+getSetting('title')+'!<br/> Votre inscription a bien été enregistrée. <a href="'+Meteor.absoluteUrl()+'">Vous pouvez ajouter des liens dès maintenant !</a>';      
     break;
 
     default:

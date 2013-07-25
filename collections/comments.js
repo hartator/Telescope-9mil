@@ -33,14 +33,14 @@ Meteor.methods({
 
     // check that user can comment
     if (!user || !canComment(user))
-      throw new Meteor.Error('You need to login or be invited to post new comments.');
+      throw new Meteor.Error('Vous devez vous enregistrer ou être invité pour laisser un commentaire.');
     
     // check that user waits more than 15 seconds between comments
     if(!this.isSimulation && (timeSinceLastComment < commentInterval))
-      throw new Meteor.Error(704, 'Please wait '+(commentInterval-timeSinceLastComment)+' seconds before commenting again');
+      throw new Meteor.Error(704, 'un peu de patience '+(commentInterval-timeSinceLastComment)+' avant de rédiger un nouveau commentaire');
 	
 	if (!cleanText)
-	  throw new Meteor.Error(704,'Your comment is empty.');
+	  throw new Meteor.Error(704,'Vous n\'avez pas laissé de commentaire.');
 	
     var comment = {
         post: postId,
