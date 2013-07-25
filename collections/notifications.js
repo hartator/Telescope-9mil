@@ -32,9 +32,9 @@ getNotification = function(event, properties, context){
     break;
 
     case 'newPost':
-      notification.subject = p.postAuthorName+' has created a new post: "'+p.postHeadline+'"';
-      notification.text = p.postAuthorName+' has created a new post: "'+p.postHeadline+'" '+getPostUrl(p.postId);
-      notification.html = '<a href="'+getUserUrl(p.postAuthorId)+'">'+p.postAuthorName+'</a> has created a new post: "<a href="'+getPostUrl(p.postId)+'" class="action-link">'+p.postHeadline+'</a>".';      
+      notification.subject = p.postAuthorName+' a ajouté un nouveau lien : "'+p.postHeadline+'"';
+      notification.text = p.postAuthorName+' a ajouté un nouveau lien : "'+p.postHeadline+'" '+getPostUrl(p.postId);
+      notification.html = '<a href="'+getUserUrl(p.postAuthorId)+'">'+p.postAuthorName+'</a> a ajouté un nouveau lien : "<a href="'+getPostUrl(p.postId)+'" class="action-link">'+p.postHeadline+'</a>".';      
     break;
 
     case 'accountApproved':
