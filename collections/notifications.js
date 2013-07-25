@@ -28,7 +28,7 @@ getNotification = function(event, properties, context){
       notification.text = 'Un nouveau commentaire a été ajouté par '+p.commentAuthorName+' sur votre lien "'+p.postHeadline+'": '+getPostCommentUrl(p.postId, p.commentId);
       notification.html = '<p><a href="'+getUserUrl(p.commentAuthorId)+'">'+p.commentAuthorName+'</a> a laissé un nouveau commentaire sur votre lien "<a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">'+p.postHeadline+'</a>"</p>';
       if(context === 'email')
-        notification.html += '<p>'+p.commentExcerpt+'</p><a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">Read more</a>';
+        notification.html += '<p>'+p.commentExcerpt+'</p><a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">Lire la suite</a>';
     break;
 
     case 'newPost':
