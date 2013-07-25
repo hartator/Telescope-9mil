@@ -17,10 +17,10 @@ getNotification = function(event, properties, context){
   switch(event){
     case 'newReply':
       notification.subject = 'Une personne a répondu à votre commentaire "'+p.postHeadline+'"';
-      notification.text = p.commentAuthorName+' has replied to your comment on "'+p.postHeadline+'": '+getPostCommentUrl(p.postId, p.commentId);
-      notification.html = '<p><a href="'+getUserUrl(p.commentAuthorId)+'">'+p.commentAuthorName+'</a> has replied to your comment on "<a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">'+p.postHeadline+'</a>"</p>';
+      notification.text = p.commentAuthorName+' a répondu à votre commentaire sur "'+p.postHeadline+'": '+getPostCommentUrl(p.postId, p.commentId);
+      notification.html = '<p><a href="'+getUserUrl(p.commentAuthorId)+'">'+p.commentAuthorName+'</a> a répondu à votre commentaire sur "<a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">'+p.postHeadline+'</a>"</p>';
       if(context === 'email')
-        notification.html += '<p>'+p.commentExcerpt+'</p><a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">Read more</a>';
+        notification.html += '<p>'+p.commentExcerpt+'</p><a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">Lire la suite</a>';
     break;
 
     case 'newComment':
