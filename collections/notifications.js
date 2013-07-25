@@ -16,7 +16,7 @@ getNotification = function(event, properties, context){
   var p = properties;
   switch(event){
     case 'newReply':
-      notification.subject = 'Someone replied to your comment on "'+p.postHeadline+'"';
+      notification.subject = 'Une personne a répondu à votre commentaire "'+p.postHeadline+'"';
       notification.text = p.commentAuthorName+' has replied to your comment on "'+p.postHeadline+'": '+getPostCommentUrl(p.postId, p.commentId);
       notification.html = '<p><a href="'+getUserUrl(p.commentAuthorId)+'">'+p.commentAuthorName+'</a> has replied to your comment on "<a href="'+getPostCommentUrl(p.postId, p.commentId)+'" class="action-link">'+p.postHeadline+'</a>"</p>';
       if(context === 'email')
@@ -38,9 +38,9 @@ getNotification = function(event, properties, context){
     break;
 
     case 'accountApproved':
-      notification.subject = 'Your account has been approved.';
-      notification.text = 'Welcome to '+getSetting('title')+'! Your account has just been approved.';
-      notification.html = 'Welcome to '+getSetting('title')+'!<br/> Your account has just been approved. <a href="'+Meteor.absoluteUrl()+'">Start posting.</a>';      
+      notification.subject = 'Votre inscription a bien été enregistrée.';
+      notification.text = 'Bienvenue '+getSetting('title')+'! Votre inscription a bien été enregistrée.';
+      notification.html = 'Bienvenue '+getSetting('title')+'!<br/> Votre inscription a bien été enregistrée. <a href="'+Meteor.absoluteUrl()+'">Vous pouvez ajouter des liens dès maintenant !</a>';      
     break;
 
     default:
