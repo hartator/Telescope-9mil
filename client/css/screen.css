@@ -1906,3 +1906,8 @@ table thead tr td {
         /* line 222, ../sass/partials/_mobile.scss */
         .post .post-actions li a .action {
           display: none; } }
+
+.digest {
+	font-size:12px;
+}
+}

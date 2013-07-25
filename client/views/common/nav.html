@@ -2,25 +2,13 @@
   <header class="header grid">
 
     <a id="mobile-menu" href="#menu" class="mobile mobile-button menu"><i class="icon-menu"></i><span>Menu</span></a>
-    
+ 
     <ul class="nav site-nav desktop">
       {{#if canView}}
-      <li><a class="top" href="/top">Top</a></li>
-      <li><a class="new" href="/new">New</a></li>
-      <li><a class="best" href="/best">Best</a></li>
-      <li><a class="digest" href="/digest">Digest</a></li>
-      {{/if}}
-      {{#if hasCategories}}
-      <li class="dropdown">
-        <a class="categories" href="/">Categories</a>
-        <div class="dropdown-menu">
-          <ul role="menu" aria-labelledby="dLabel">
-            {{# each categories}}
-              <li><a class="pending" href="/c/{{slug}}">{{name}}</a></li>
-            {{/each}}
-          </ul>
-        </div>
-      </li>
+      <li><a class="top" href="/"><strong>9 Milliards</strong></a></li>
+      <li><a class="new" href="/new">Dernières</a></li>
+      <li><a class="best" href="/best">Meilleurs</a></li>
+      <li><a class="best" href="/digest">Archive</a></li>
       {{/if}}
       {{#if isAdmin}}
       <li class="dropdown">
@@ -36,6 +24,12 @@
         </div>
       </li>
       {{/if}}
+	  {{#if hasCategories}}
+			<br>
+            {{# each categories}}
+              <li><a class="digest" href="/c/{{slug}}">{{name}}</a></li>
+            {{/each}}
+      {{/if}}
     </ul>
     
     {{#if logo_url}}
@@ -45,7 +39,7 @@
         </a>
       </h1>
     {{else}}
-      <h1 class="logo"><a href="/">{{site_title}}</a></h1>
+      
     {{/if}}
     
     {{#if canView}}
