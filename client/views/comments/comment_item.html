@@ -18,16 +18,16 @@
             <a class="comment-username" href="/users/{{userId}}">{{authorName}}</a>
             <span class="comment-time">{{ago}},</span>
             <span class="points">{{votes}} <span class="unit">points </span>
-            <a href="/comments/{{_id}}" class="comment-permalink icon-link goto-comment">link</a>
+            <a href="/comments/{{_id}}" class="comment-permalink icon-link goto-comment">lien</a>
             {{#if can_edit}}
-              | <a class="edit-link" href="/comments/{{_id}}/edit">Edit</a>
+              | <a class="edit-link" href="/comments/{{_id}}/edit">Editer</a>
             {{/if}}
             {{#if currentUser.isAdmin}}
               | <span>{{full_date}}</span>
             {{/if}}
           </div>
           <div class="comment-text markdown">{{{body_formatted}}}</div>
-          <a href="/comments/{{_id}}/reply" class="comment-reply goto-comment">Reply</a>
+          <a href="/comments/{{_id}}/reply" class="comment-reply goto-comment">Répondre</a>
         </div>
       </div>
       {{#if showChildComments}}
