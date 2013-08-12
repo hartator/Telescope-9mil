@@ -7,11 +7,11 @@
 					<td colspan="2"><span class="user-avatar" style="background-image:url({{avatarUrl}});"></span></td>
 				</tr>
 				<tr>
-					<td>Name: </td>
+					<td>Nom : </td>
 					<td>{{username}}</td>
 				</tr>
 				<tr>
-					<td>Member since: </td>
+					<td>Membre depuis : </td>
 					<td>{{createdAtFormatted}}</td>
 				</tr>
 				<tr>
@@ -20,7 +20,7 @@
 				</tr>
 			</table>
 			{{#if isCurrentUser}}
-			<a href="/users/{{_id}}/edit">Edit profile</a>
+			<a href="/users/{{_id}}/edit">Éditer profil</a>
 			{{/if}}
 		</div>
 		{{/with}}
