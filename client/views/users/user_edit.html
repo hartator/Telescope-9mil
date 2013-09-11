@@ -3,14 +3,14 @@
   	{{#with user}}
     {{#if profileIncomplete}}
     <div>
-      Please complete your profile below before continuing.
+      Merci de compléter votre profil avant de continuer.
     </div>
     {{/if}}
     <form>
-      <h2>Account</h2>
+      <h2>Compte</h2>
       {{#if username}}
       <div class="control-group">
-        <label>Username</label>
+        <label>Utilisateur</label>
         <div class="controls">
           <input id="username" name="username" disabled="disabled" type="text" value="{{username}}" />
         </div>
@@ -23,7 +23,7 @@
         </div>
       </div> -->
       <div class="control-group">
-        <label>Display Name</label>
+        <label>pseudonyme affiché</label>
         <div class="controls">
           <input name="name" type="text" value="{{profile.name}}" />
         </div>
@@ -38,13 +38,13 @@
         <label>Bio</label>
         <div class="controls"><textarea name="bio" type="text">{{profile.bio}}</textarea></div>
       </div>
-      <h3>Change Password?</h3>
+      <h3>Changer de mot de passe ?</h3>
       <div class="control-group">
-        <label>Old Password</label>
+        <label>Ancien mot de passe</label>
         <div class="controls"><input name="old_password" type="text" value="" /></div>
       </div>
       <div class="control-group">
-        <label>New Password</label>
+        <label>Nouveau mot de passe</label>
         <div class="controls"><input name="new_password" type="text" value="" /></div>
       </div>
           <div class="control-group">
@@ -62,7 +62,7 @@
             </div>
           </div>
       <div class="form-actions">
-        <a href="/forgot_password">Forgot password?</a>
+        <a href="/forgot_password">Mot de passe oublié ?</a>
         <input type="submit" class="button" value="Submit" />
       </div>
     </form>
