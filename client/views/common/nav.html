@@ -24,12 +24,6 @@
         </div>
       </li>
       {{/if}}
-	  {{#if hasCategories}}
-			<br>
-            {{# each categories}}
-              <li><a class="digest" href="/c/{{slug}}">{{name}}</a></li>
-            {{/each}}
-      {{/if}}
     </ul>
     
     {{#if logo_url}}
@@ -53,4 +47,13 @@
     </div>
 
   </header>
+
+	<div id="categories_list" class="grid">
+		{{#if hasCategories}}
+	        {{# each categories}}
+	          <a class="digest" href="/c/{{slug}}">{{name}}</a>
+	        {{/each}}
+	  {{/if}}
+	</div>
+	
 </template>
